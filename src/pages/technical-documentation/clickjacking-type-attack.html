@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='./styles.css'>
+    <title>Clickjacking Type Attack</title>
+  </head>
+
+  <body>
+    <nav id='navbar'>
+      <header> <a href='#Clickjacking_Type_Attack' class='nav-link'>Clickjacking Type Attack</a></header>
+      <ul>
+      <li><a href='#Idea' class='nav-link'>Idea</a></li>
+      <li><a href='#Demonstration' class='nav-link'>Demonstration</a></li>
+      <li><a href='#Examples_of_weak_protection' class='nav-link'>Examples of weak protection</a></li>
+      <li><a href='#Top-navigation_blocking' class='nav-link'>Top-navigation blocking</a></li>
+      <li><a href='#Sandbox_attribute' class='nav-link'>Sandbox attribute</a></li>
+      <li><a href='#X-Frame-Options' class='nav-link'>X-Frame-Options</a></li>
+      <li><a href='#Showing_with_disabled_functionality' class='nav-link'>Showing with disabled functionality</a></li>
+      <li><a href='#Samesite_cookie_attribute' class='nav-link'>Samesite cookie attribute</a></li>
+      <li><a href='#Summary' class='nav-link'>Summary</a></li>
+      <li><a href='#Reference' class='nav-link'>Reference</a></li>
+      </ul>
+    </nav>
+
+
+
+    <main id='main-doc'>
+
+      <section class='main-section' id='Clickjacking_Type_Attack'>
+      <header>Clickjacking Type Attack</header>
+      <p>A clickjacking attack allows a malicious page to click on a victim site on behalf of the visitor. <br /><br />
+Many sites have been hacked in this manner, including Twitter, Facebook, Paypal and others. All of them, of course, are now protected.</p>
+      </section>
+
+      <section class='main-section' id='Idea'>
+      <header>Idea</header>
+      <p>The idea behind this attack is very simple. <br /><br />
+
+Here's how the clickjacking attack was carried out on Facebook:<br /><br />
+
+     <ol> <li>The visitor is lured to a malicious page (no matter how).</li>
+     <li>There is a link on the page that looks harmless (for example, “Get Rich Now” or “Click Here, It’s Very Funny”).</li>
+     <li>On top of this link, the malicious page places a transparent <code>iframe</code> with the <code>src</code> from the facebook.com website in such a way that the “like” button is located directly above this link. This is usually done using z-index in CSS. </li>
+     <li>When attempting to click on this link, the visitor actually clicks on a button.</li></ol>
+     </p>
+      </section>
+
+      <section class='main-section' id='Demonstration'>
+      <header>Demonstration</header>
+      <p>This is what the malicious page code looks like. For clarity, the <code>iframe</code> is semi-transparent (on real malicious pages it is completely transparent):<br /><br />
+      <pre>
+<-style->
+iframe { /*-- iframe from the victim site --*/
+  width: 400px;
+  height: 100px;
+  position: absolute;
+  top:0; left:-20px;
+  opacity: 0.5; /*-- in real case opacity:0 --*/
+  z-index: 1;
+}
+<-/style->
+
+<-div->Click here to get rich:<-/div->
+
+--- Url iframe from the victim site ---
+<-iframe src="/clickjacking/facebook.html"-><-/iframe->
+
+<-button->Click here!<-/button->
+
+---...And everything will be great (for me, a hacker)!---
+</pre><br /><br />
+Here we have a semi-transparent <code>iframe src="facebook.html"</code>, and in the example we see it hanging over the button. Clicking the button actually clicks on the iframe, but this is not visible to the user because the iframe is transparent.<br /><br />
+
+As a result, if the user is logged in to the Facebook website (“Remember me” is usually activated), then he adds a “like”. On Twitter this will be the “read” button, etc.<br /><br />
+
+All we need for the attack is to position the <code>iframe</code> on the malicious page so that the button is directly above the link. So the user clicking the link will actually be clicking a button in the <code>iframe</code>. This can usually be done using CSS positioning.
+        <div class='additional-info'>
+          <h4>Clickjacking attack is good only for mouse clicks, not keyboard</h4>
+          <p>This attack only works on mouse actions (or similar ones, such as finger clicking on a mobile device).<br /><br />
+
+Keyboard input is much more difficult to redirect. Technically, if we have a textbox to hack, we can arrange the iframe so that the textboxes overlap each other. Then the visitor, when trying to focus on the text field that he sees on the page, will actually focus on the text field inside the iframe.<br /><br />
+
+But there is one problem. Anything the visitor types will be hidden because the iframe is not visible.<br /><br />
+
+People usually stop typing when they don't see new characters on the screen.</p>
+        </div>
+      </p>
+      </section>
+
+      <section class='main-section' id='Examples_of_weak_protection'>
+        <header>Examples of weak protection</header>
+        <p>The oldest protection option is JavaScript code that prevents the page from opening in a frame (this is called “framebusting”).<br /><br />
+
+It looks like this:
+<pre>if (top != window) {
+  top.location = window.location;
+}</pre>
+
+In this case, if a window detects that it is open in a frame, it automatically positions itself on top. <br /><br />
+
+This method is not a reliable protection, since many ways to bypass it have appeared. Let's look at some of them.
+</p>
+      </section>
+
+      <section class='main-section' id='Top-navigation_blocking'>
+        <header>Top-navigation blocking</header>
+        <p>We can block the transition caused by changing <code>top.location</code> in the beforeunload event handler.<br /><br />
+
+The external page (owned by the hacker) installs a handler for this event that cancels it, for example, like this:
+<pre>window.onbeforeunload = function() {
+  return false;
+};</pre>
+When an iframe attempts to change <code>top.location</code>, the visitor will see a message asking if they really want to leave the page. In most cases, the visitor will answer in the negative because he does not know about the iframe: all he sees is the top page, which there is no reason to leave. Therefore <code>top.location</code> will not change!</p>
+
+      </section>
+
+      <section class='main-section' id='Sandbox_attribute'>
+        <header>Sandbox attribute</header>
+        <p>One of the things restricted by the <code>sandbox</code> attribute is navigation. A sandboxed iframe may not change <code>top.location</code>.
+
+So we can add the iframe with <code>sandbox="allow-scripts allow-forms"</code>. That would relax the restrictions, permitting scripts and forms. But we omit <code>allow-top-navigation</code> so that changing <code>top.location</code> is forbidden.
+
+Here’s the code:
+
+<pre>
+  <-iframe sandbox="allow-scripts allow-forms" src="facebook.html"-><-/iframe->
+</pre>
+
+There are other ways to work around that simple protection too.</p>
+      </section>
+
+      <section class='main-section' id='X-Frame-Options'>
+        <header>X-Frame-Options</header>
+        <p>The server-side header X-Frame-Options can permit or forbid displaying the page inside a frame.<br /><br />
+
+It must be sent exactly as HTTP-header: the browser will ignore it if found in HTML <meta> tag. So, <code><-meta http-equiv="X-Frame-Options"...-></code> won’t do anything. <br /><br />
+
+The header may have 3 values: <br /><br />
+
+<code>DENY</code><br /><br />
+    Never ever show the page inside a frame.<br /><br />
+<code>SAMEORIGIN</code><br /><br />
+    Allow inside a frame if the parent document comes from the same origin.<br /><br />
+<code>ALLOW-FROM domain</code><br /><br />
+    Allow inside a frame if the parent document is from the given domain.<br /><br />
+
+For instance, Twitter uses <code>X-Frame-Options: SAMEORIGIN</code>.<br /><br />
+
+</p>
+      </section>
+
+      <section class='main-section' id='Showing_with_disabled_functionality'>
+        <header>Showing with disabled functionality</header>
+        <p>The <code>X-Frame-Options</code> header has a side effect. Other sites won’t be able to show our page in a frame, even if they have good reasons to do so.<br />
+
+So there are other solutions… For instance, we can “cover” the page with a <code><-div-></code> with styles <code>height: 100%; width: 100%;</code>, so that it will intercept all clicks. That <code><-div-></code> is to be removed if <code>window == top</code> or if we figure out that we don’t need the protection.
+
+Something like this:
+<pre>
+<-style->
+  #protector {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 99999999;
+  }
+<-/style->
+
+<-div id="protector"->
+  <-a href="/" target="_blank"->Go to the site<-/a->
+<-/div->
+
+<-script->
+  // there will be an error if top window is from the different origin
+  // but that's ok here
+  if (top.document.domain == document.domain) {
+    protector.remove();
+  }
+<-/script->
+</pre></p>
+      </section>
+
+       <section class='main-section' id='Samesite_cookie_attribute'>
+        <header>Samesite cookie attribute</header>
+        <p>The <code>samesite</code> cookie attribute can also prevent clickjacking attacks.<br /><br />
+
+A cookie with such attribute is only sent to a website if it’s opened directly, not via a frame, or otherwise.<br /><br />
+
+If the site, such as Facebook, had <code>samesite</code> attribute on its authentication cookie, like this:
+<pre>Set-Cookie: authorization=secret; samesite</pre>
+…Then such cookie wouldn’t be sent when Facebook is open in iframe from another site. So the attack would fail.<br /><br />
+
+The <code>samesite</code> cookie attribute will not have an effect when cookies are not used. This may allow other websites to easily show our public, unauthenticated pages in iframes.<br /><br />
+
+However, this may also allow clickjacking attacks to work in a few limited cases. An anonymous polling website that prevents duplicate voting by checking IP addresses, for example, would still be vulnerable to clickjacking because it does not authenticate users using cookies. </p>
+      </section>
+
+       <section class='main-section' id='Summary'>
+        <header>Summary</header>
+        <p>Clickjacking is a way to “trick” users into clicking on a victim site without even knowing what’s happening. That’s dangerous if there are important click-activated actions. <br /><br />
+
+A hacker can post a link to their evil page in a message, or lure visitors to their page by some other means. There are many variations.<br /><br />
+
+From one perspective – the attack is “not deep”: all a hacker is doing is intercepting a single click. But from another perspective, if the hacker knows that after the click another control will appear, then they may use cunning messages to coerce the user into clicking on them as well.<br /><br />
+
+The attack is quite dangerous, because when we engineer the UI we usually don’t anticipate that a hacker may click on behalf of the visitor. So vulnerabilities can be found in totally unexpected places.<br /><br />
+
+    <ul><li>It is recommended to use <code>X-Frame-Options: SAMEORIGIN</code> on pages (or whole websites) which are not intended to be viewed inside frames.</li><br />
+    <li>Use a covering <code><-div-></code> if we want to allow our pages to be shown in iframes, but still stay safe.</li></ul>
+</p>
+      </section>
+
+      <section class='main-section' id='Reference'>
+        <header>Reference</header>
+        <p>Documentation compiled using information from <a href='https://javascript.info/clickjacking'> https://javascript.info/clickjacking</a></p>
+      </section>
+
+    </main>
+  </body>
+
+</html>

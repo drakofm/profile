@@ -1,0 +1,351 @@
+
+
+* {
+    --main-color: #D9F1F0;
+    --secondary-color: #21918F;
+}
+
+html {
+    min-width: 195px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+#no-footer {
+    font-family: 'Raleway', sans-serif;
+    max-width: 80vw;
+    margin: auto;
+}
+
+#header {
+  display: flex;
+  position: fixed;
+    top: 0;
+    left: 0;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 8%;
+  background-color: var(--main-color);
+    border-bottom: 1px solid lightgrey;
+}
+
+#header img {
+    max-height: 90%;
+}
+
+#header h1 {
+    display: flex;
+    justify-content: flex-end;
+    width: 40%;
+    font-size: max(2vw, 18px);
+    text-align: center;
+}
+
+#navbar {
+  display: flex;
+  align-items: left;
+  justify-content: flex-start;
+    width: 40%;
+}
+
+#navbar ul {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+#navbar li {
+    list-style: none;
+    padding: 1vw;
+    font-size: max(1.4vw, 10px);
+    justify-content: flex-start;
+    margin: 0;
+}
+
+
+/* ----- MAIN DOC ----- */
+
+main {
+  padding-top: 60px;
+}
+
+hr {
+    border: 1px solid var(--main-color);
+}
+
+section {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin: 2%;
+    scroll-margin-top: 60px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+a:hover {
+    color: lightgrey;
+}
+
+
+#benefits p {
+    background-color: var(--main-color);
+    border-radius: 30px;
+    font-size: min(2vw, 20px);
+    padding: 5%;
+}
+
+#benefits img {
+    width: 10%;
+    height: 10%;
+    padding: 3%;
+}
+
+iframe {
+    width: 80vw;
+    height: max(30vw, 200px);
+    box-shadow: 0px 0px 30px 0px;
+    border-radius: 20px;
+    margin: 30px 0;
+}
+
+#video p {
+    line-height: 1.5;
+    margin: 0 min(5vw, 50px) 0 0;
+    width: min(30vw, 300px);
+    font-size: min(2vw, 20px);
+}
+
+#gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#gallery img {
+    width: min(275px, 20vw);
+    height: min(275px, 20vw);
+    min-width: 150px;
+    min-height: 150px;
+    object-fit: cover;
+    box-shadow: 0 0 20px 0 lightgrey;
+    border-radius: 30px;
+}
+
+figure {
+    margin: 3%;
+}
+
+figcaption {
+    font-style: italic;
+    font-size: min(2vw, 20px);
+    padding-top: 8px;
+}
+
+.price {
+    font-size: 80%;
+    line-height: 0.2;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+#get-more {
+    display: block;
+    margin-bottom: 50px;
+}
+
+#get-more img {
+    height: 5%;
+    width: 5%;
+    padding: 0 5%;
+}
+
+#get-more input {
+    height: 20px;
+    width: 300px;
+}
+
+button {
+    font-size: min(3vw, 20px);
+    padding: 8px 50px;
+    background-color: var(--main-color);
+    border: 1px solid lightgrey;
+}
+
+footer {
+    background-color: var(--main-color);
+    border-top: 1px solid lightgrey;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 8%;
+    font-size: min(1.2vw, 12px);
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.25;
+}
+
+footer p:first-of-type {
+    text-align: left;
+    max-width: 49%
+}
+
+footer p:last-of-type {
+    text-align: right;
+    max-width: 49%
+}
+
+/* -----MEDIA-for-width400px-and-less-----*/
+
+@media only screen and (max-width: 400px) {
+
+    #header {
+  position: absolute;
+  flex-direction: column;
+  height: 80px;
+  
+    }
+
+    #header img {
+    max-width: 10%;
+    max-height: 100%;
+    min-width: 25px;
+    padding: 0px;
+    margin-bottom: 3px;
+
+    }
+
+    #header h1 {
+    height: 20px;
+    width: 90%;
+    justify-content: center;
+    font-size: min(14px, 4vw);
+    text-align: center;
+    padding: 3px;
+    margin: 0;
+}
+
+#navbar {
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+    padding: 0;
+    margin: 0;
+}
+
+#navbar ul {
+    height: 14px;
+    justify-content: center;
+    padding: 3px;
+    margin: 0;
+}
+
+#navbar li {
+    font-size: min(14px, 4vw);
+    justify-content: center;
+    overflow-y: hidden;
+    
+}
+
+main {
+  padding-top: 80px;
+}
+
+hr {
+    opacity: 0.4;
+}
+
+section {
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+    scroll-margin-top: 7px;
+}
+
+#benefits p {
+    font-size: 12px;
+    border-radius: 20px;
+    width: 50%;
+    margin: 3px;
+}
+
+#benefits img {
+    width: 20%;
+    height: 20%;
+}
+
+#video p {
+    margin: 3px;
+    font-size: 12px;
+    width: max(150px, 50vw);
+}
+
+iframe {
+    width: 60vw;
+    min-width: 200px;
+    min-height: 150px;
+    box-shadow: 0px 0px 10px 0px;
+    border-radius: 10px;
+    margin: 12px 0;
+}
+
+figcaption {
+    font-size: 14px;
+}
+
+#get-more {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+#get-more img {
+    display: none;
+    height: 10%;
+    width: 10%;
+    padding: 2% 0;
+}
+
+#get-more input {
+    height: 18px;
+    width: 70vw;
+    margin-bottom: 5%;
+}
+
+button {
+    font-size: 14px;
+    padding: 8px 30px;
+}
+
+footer {
+   flex-direction: column;
+    justify-content: center;
+    height: 150px;
+    font-size: min(5vw, 10px);
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.25;
+}
+
+footer p:first-of-type {
+    text-align: center;
+    max-width: 90%;
+}
+
+footer p:last-of-type {
+    text-align: center;
+    max-width: 90%;
+}
+
+}

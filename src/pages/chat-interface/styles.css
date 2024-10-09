@@ -1,0 +1,218 @@
+/* *** Reset styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Reset styles $$$ */ 
+
+:root {
+  --main-color-1: #3700ff3a;
+  --main-color-2: #a200ff3a;
+  --main-color-3: #f200ff3a;
+  --bg-color: #d4e4fe;
+  --bg-color-light: #e6effc;
+  --border-color: #aca6f9;
+  --border-color-active: #837bf6;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  background-color: #b0e3ff79;
+  font-family: "Calibri";
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  height: 100vh;
+  width: 100vw;
+}
+
+#header,
+#users-list,
+#chat,
+#footer {
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  background-color: var(--bg-color);
+}
+
+#header {
+  display: flex;
+  justify-content: end;
+  gap: 30px;
+  min-height: 50px;
+  padding: 10px min(5%, 25px);
+}
+
+#users-list-and-chat {
+  display: flex;
+  gap: 5px;
+  max-height: calc(100vh - 160px); /* второй операнд подбирается в соответствии с захардкоденными высотами header (50px), footer (100px) и main->gap (5px * 2 гэпа между тремя элементами флексбокса)  */
+}
+
+#users-list {
+  min-width: 200px;
+  padding: 10px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.user-plate {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  padding: 3px 5px;
+  background-color: var(--main-color-1);
+  border-radius: 5px;
+  list-style-type: none;
+  transition: all 0.2s;
+}
+
+.user-icon-mini {
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+}
+
+#chat {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 10px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.chat__message-line--from,
+.chat__message-line--to {
+  display: flex;
+  align-items: center;
+}
+
+.chat__message-line--from {
+  flex-direction: row-reverse;
+}
+
+.user-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.message-to, .message-from {
+  max-width: 100%;
+  margin: 8px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.message-to {
+  background-color: var(--main-color-1);
+}
+
+.message-from {
+  background-color: var(--main-color-3);
+  align-self: flex-end;
+}
+
+#footer {
+  min-height: 100px;
+  padding: 10px;
+}
+
+#footer__message-form {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#footer__message-icon-smile,
+#footer__message-icon-attach {
+  position: absolute;
+}
+
+#footer__message-icon-smile {
+  top: 10px;
+  right: 10px;
+}
+
+#footer__message-icon-attach {
+  top: 40px;
+  right: 10px;
+}
+
+#footer__message-box {
+  width: 100%;
+  height: 100%;
+  padding: 5px 40px 5px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--bg-color-light);
+  outline-color: var(--border-color);
+  font: 1rem "Calibri";
+  resize: none;
+  scrollbar-width: none;
+}
+
+
+
+.controls:hover,
+.user-plate:hover,
+#footer__message-icon-smile:hover,
+#footer__message-icon-attach:hover {
+  cursor: pointer;
+}
+
+.user-plate:hover {
+  background-color: var(--main-color-2);
+}
+
+#footer__message-box:focus {
+  border-color: var(--border-color-active);
+  outline: none;
+}
+
+
+
+/* ^^^ Adaptive  */
+
+@media screen and (max-width: 1080px) {
+  #users-list-and-chat {
+    max-height: calc(100vh - 160px - 60px);
+  }
+}
+
+@media screen and (max-width: 666px) {
+  #users-list {
+    display: flex;
+    justify-content: center;
+    min-width: 60px;
+  }
+
+  .user-plate-text {
+    display: none;
+  }
+
+  .message-to, .message-from {
+    font-size: 0.95rem;
+  }
+}
+
+/* Adaptive $$$ */
+
+/* ^^^ Cross-browser (up to 2 years)  */
+
+#users-list::-webkit-scrollbar,
+#chat::-webkit-scrollbar,
+#footer__message-box::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Cross-browser (up to 2 years) $$$ */

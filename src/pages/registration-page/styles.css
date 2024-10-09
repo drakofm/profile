@@ -1,0 +1,84 @@
+body {
+  text-align: center;
+  background-image: url(./img-bg.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font: 15px verdana;
+  font-weight: 500;
+  line-height: 1.5em;
+  color: #534C26;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.mainscreen {
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 0 15px 0;
+  max-width: 50em;
+  min-width: 20em;
+  margin: 1em auto 3em auto;
+}
+
+h1 {
+  padding-top: 1em;
+}
+
+p[id='description'] {
+  max-width: 40em;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  padding: 1em 0 0 0;
+}
+
+fieldset {
+  max-width: 40em;
+  min-width: 20em;
+  margin: 2em auto;
+  text-align: left;
+  border-style: dotted;
+  border-color: hsl(30, 20%, 100%);
+}
+
+.main-border {
+  border-style: solid;
+  border-color: hsl(30, 10%, 90%);
+}
+
+input, textarea, select {
+  margin: 0 0 0 1em;
+  color: #534C26;
+  background-color:  hsla(30, 10%, 80%, 0.7);
+  font-size: 14px;
+  border-color:  hsla(30, 10%, 80%, 0.7);
+  border-radius: 0.3em;
+}
+
+input[type="file"] {
+  background-color:  hsla(30, 10%, 80%, 0.7);
+}
+
+input[type="submit"] {
+  display: block;
+  width: 60%;
+  margin: 1em auto;
+  height: 2em;
+  font-size: 1.1rem;
+  min-width: 100px;
+}
+
+legend {
+  font-style: italic;
+  margin: 0 auto;
+}
+
+form {
+  padding: 1em 0 3em 0;;
+}
+
+/* сделать так, чтобы поля input были на равном уровне независимо от длины текста label можно с помощью 1) flexbox или 2) разметки в виде таблицы. Но на данном этапе это ещё не проходилось. Пишу для личного пользования */ 

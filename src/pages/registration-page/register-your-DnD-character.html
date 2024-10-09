@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <link rel='stylesheet' href='styles.css'>
+    <title>Create and register your D&D Character</title>
+  </head>
+
+  <body>
+    <div class='mainscreen'>
+    <h1 id='title'>Create and register your D&D Character!</h1>
+    <p id='description' class='italic'>This form allows you to create D&D character according to 5th edition rules (Player's Handbook rules only) and to register in the common system. Join our worldwide society of interest!</p>
+    <form id='survey-form' method='POST'>
+      
+      <!-- ACCOUNT INFO -->
+      
+      <fieldset class='main-border'>
+        <legend>Your account info</legend>
+        <label for='name'> Name: <input type='text' id='name' name='name' required></label>
+        <label for='surname' >Surname: <input type='text' id='surname' name='surname'></label>
+        <label for='age'>Age: <input type='number' id='age' name='age' min='6' max='120' required></label>
+        <label for='gender'>Gender: <select id='gender' name='gender'>
+          <option value='1'>Male</option>
+          <option value='2'>Female</option>
+          <option value='3'>Other</option>
+          </select></label>
+        <label for='email'>E-mail: <input type='email' id='email' name='email' required></label>
+        <label for='nickname'>Nickname: <input type='text' id='nickname' name='nickname'></label>
+        <label for='password'>Password: <input type='password' id='password' name='password' pattern='[a-z0-9]{8,}' placeholder='min 8 symbols, a-z, 0-9' reqired></label>
+        <label for='profile-picture'>Profile picture: <input type='file' id='profile-picture' name='profile-picture'></label>
+      </fieldset>
+
+      <!-- CHARACTER INFO -->
+
+      <fieldset class='main-border'>
+        <legend>Your character info</legend>
+        <fieldset>
+          <legend>General Information</legend>
+        <label for='character-name'> Character name: <input type='text' id='character-name' name='character-name' required></label>
+        <label for='race'> Race: <select id='character-race' name='character-race' required>
+          <option value='Gnome'>Gnome</option>
+          <option value='Dwarf'>Dwarf</option>
+          <option value='Dragonborn'>Dragonborn</option>
+          <option value='Half-orc'>Half-orc</option>
+          <option value='Halfling'>Halfling</option>
+          <option value='Half-elf'>Half-elf</option>
+          <option value='Tiefling'>Tiefling</option>
+          <option value='Human'>Human</option>
+          <option value='Elf'>Elf</option>
+          </select>
+        </label>
+        <label for='character-class'>Class: <select id='character-class' name='character-class' required>
+          <option value='Bard'>Bard</option>
+          <option value='Barbarian'>Barbarian</option>
+          <option value='Fighter'>Fighter</option>
+          <option value='Wizard'>Wizard</option>
+          <option value='Druid'>Druid</option>
+          <option value='Cleric'>Cleric</option>
+          <option value='Warlock'>Warlock</option>
+          <option value='Monk'>Monk</option>
+          <option value='Paladin'>Paladin</option>
+          <option value='Rogue'>Rogue</option>
+          <option value='Ranger'>Ranger</option>
+          <option value='Sorcerer'>Sorcerer</option>
+          </select></label>
+          <label for='player-name'>Player name: <input type='text' id='player-name' name='player-name' ></label>
+          <label for='character-rank'>Rank: <input type='number' id='character-rank' name='character-rank' min='1' max='20' placeholder='1' required></label>
+          <label for='character-experience'>Experience: <input type='number' id='character-experience' name='character-experience' placeholder='0' required></label>
+        </fieldset>
+
+<!--_________________________-->
+
+        <fieldset>
+          <label for='inspiration'>Inspiration: <input type='checkbox' id='inspiration' name='inspiration' required></label>
+          <label for='proficiency'>Proficiency bonus: + <input type='number' id='proficiency' name='proficiency'></label>
+          <label for='perception'>Passive perception bonus: <input type='number' id='perception' name='perception'></label>
+        </fieldset>
+
+<!--_________________________-->
+
+        <fieldset>
+          <legend>Characteristics</legend>
+          <label for='stat-strength'>Strength: <input type='number' id='stat-strength' name='stat-strength-base'> + <input type='number' id='stat-strength' name='stat-strength-mod'></label>
+          <label for='stat-dexterity'>Dexterity: <input type='number' id='stat-dexterity' name='stat-dexterity-base'> + <input type='number' id='stat-dexterity' name='stat-dexterity-mod'></label>
+          <label for='stat-constitution'>Constitution: <input type='number' id='stat-constitution' name='stat-constitution-base'> + <input type='number' id='stat-constitution' name='stat-constitution-mod'></label>
+          <label for='stat-intelligence'>Intelligence: <input type='number' id='stat-intelligence' name='stat-intelligence-base'> + <input type='number' id='stat-intelligence' name='stat-intelligence-mod'></label>
+          <label for='stat-wisdom'>Wisdom: <input type='number' id='stat-wisdom' name='stat-wisdom-base'> + <input type='number' id='stat-wisdom' name='stat-wisdom-mod'></label>
+          <label for='stat-charisma'>Charisma: <input type='number' id='stat-charisma' name='stat-charisma-base'> + <input type='number' id='stat-charisma' name='stat-charisma-mod'></label>
+        </fieldset>
+        
+<!--_________________________-->
+        
+        <fieldset>
+          <legend>Skills</legend>
+          <label for='skill-acrobatics'>Acrobatics <input type='checkbox' id='skill-acrobatics' name='skill-acrobatics'></label>
+          <label for='skill-animal-handling'>Animal handling <input type='checkbox' id='skill-animal-handling' name='skill-animal-handling'></label>
+          <label for='skill-arcana'>Arcana <input type='checkbox' id='skill-arcana' name='skill-arcana'></label>
+          <label for='skill-athletics'>Athletics <input type='checkbox' id='skill-athletics' name='skill-athletics'></label>
+          <label for='skill-deception'>Deception <input type='checkbox' id='skill-deception' name='skill-deception'></label>
+          <label for='skill-history'>History <input type='checkbox' id='skill-history' name='skill-history'></label>
+          <label for='skill-insight'>Insight <input type='checkbox' id='skill-insight' name='skill-insight'></label>
+          <label for='skill-intimidation'>Intimidation <input type='checkbox' id='skill-intimidation' name='skill-intimidation'></label>
+          <label for='skill-investigation'>Investigation <input type='checkbox' id='skill-investigation' name='skill-investigation'></label>
+          <label for='skill-medicine'>Medicine <input type='checkbox' id='skill-medicine' name='skill-medicine'></label>
+          <label for='skill-nature'>Nature <input type='checkbox' id='skill-nature' name='skill-nature'></label>
+          <label for='skill-perception'>Perception <input type='checkbox' id='skill-perception' name='skill-perception'></label>
+          <label for='skill-performance'>Performance <input type='checkbox' id='skill-performance' name='skill-performance'></label>
+          <label for='skill-persuasion'>Persuasion <input type='checkbox' id='skill-persuasion' name='skill-persuasion'></label>
+          <label for='skill-religion'>Religion <input type='checkbox' id='skill-religion' name='skill-religion'></label>
+          <label for='skill-sleight-of-hand'>Sleight of hand <input type='checkbox' id='skill-sleight-of-hand' name='skill-sleight-of-hand'></label>
+          <label for='skill-stealth'>Stealth <input type='checkbox' id='skill-stealth' name='skill-stealth'></label>
+          <label for='skill-survival'>Survival <input type='checkbox' id='skill-survival' name='skill-survival'></label>
+          <label for='skill-other-lang'>Other proficiencies & languages <textarea id='skill-other-lang' name='skill-other-lang' rows='3' cols='30'></textarea></label>
+        </fieldset>
+<!--_________________________-->
+
+        <fieldset>
+          <legend>Battle</legend>
+          <label for='battle-armour'>Armour class: <input type='number' id='battle-armour' name='battle-armour' required></label>
+          <label for='battle-initiative'>Initiative: <input type='number' id='battle-initiative' name='battle-initiative' required></label>
+          <label for='battle-speed'>Speed: <input type='number' id='battle-speed' name='battle-speed' required></label>
+          <label for='battle-hp'>Max HP: <input type='number' id='battle-hp' name='battle-hp' required></label>
+          <label for='battle-hit-dice'>Hit dice: <input type='text' id='battle-hit-dice' name='battle-hit-dice' required></label>
+          <label for='battle-attacks'>Attacks: <textarea id='battle-attacks' name='battle-attacks' rows='3' cols='30'></textarea></label>
+        </fieldset>
+
+<!--_________________________-->
+
+        <fieldset>
+          <legend>Equipment</legend>
+          <label for='equip'><textarea id='equip' name='equip' rows='5' cols='50'></textarea></label>
+        </fieldset>
+
+<!--_________________________-->
+
+        <fieldset>
+          <legend>Personality</legend>
+          <label for='pers-traits'>Personality traits: <textarea id='pers-traits' name='pers-traits' rows='3' cols='30'></textarea></label>
+          <label for='pers-ideals'>Ideals: <textarea id='pers-ideals' name='pers-ideals' rows='3' cols='30'></textarea></label>
+          <label for='pers-bonds'>Bonds: <textarea id='pers-bonds' name='pers-bonds' rows='3' cols='30'></textarea></label>
+          <label for='pers-flaws'>Flaws: <textarea id='pers-flaws' name='pers-flaws' rows='3' cols='30'></textarea></label>
+        </fieldset>
+
+<!--_________________________-->
+
+<!--____END_OF_CHAR_BLOCK____-->
+
+      </fieldset>
+      <input type="submit" value="Submit" >
+    </form>
+    </div>
+  </body>
+</html>

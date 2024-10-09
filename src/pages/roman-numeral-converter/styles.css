@@ -1,0 +1,112 @@
+*, *::before, *::after {
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  min-width: 500px;
+  min-height: 500px;
+  font-family: "Noto Serif", serif;
+  background: linear-gradient(76deg, #b5f4ff, #f0daff, #d8b5ff);
+  color: #53217e
+}
+
+#container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+ font-family: "Cinzel", serif;
+ font-weight: normal;
+ font-size: 48px;
+}
+
+#inp-div {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  width: 420px;
+  height: 200px;
+  border: thick double #c490ff55;
+  background-color: #d8b5ff25;
+}
+
+h2 {
+  margin: 10px auto;
+  font-size: 20px;
+}
+
+#number {
+  display: block;
+  margin: 10px auto;
+  height: 24px;
+  width: 350px;
+  text-align: center;
+  color: #46007c;
+  font-size: 16px;
+  font-family: "Calibri", serif;
+  background: rgba(230, 162, 255, 0.16);
+  border: 0.5px solid rgba(89, 12, 255, 0.267);
+}
+
+#number[type="number"]::-webkit-inner-spin-button, 
+#number[type="number"]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+#number[type="number"] {
+  -moz-appearance: textfield;
+}
+
+#number:focus, #number:active {
+  outline: #d3beff80;
+  border-color: #8058df;
+}
+
+#convert-btn {
+  margin: 15px auto;
+  padding: 5px;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  color: #751eb7;
+  background: linear-gradient(76deg,#d294ff67, #d3beff80);
+  border: 1px solid #d8b5ffae;
+}
+
+#convert-btn:hover {
+  color: #751eb7;
+  background: linear-gradient(76deg,#d294ffda, #d3beffee);
+}
+
+#convert-btn:active  {
+  color: #751eb7;
+  background: linear-gradient(76deg,#c26efeda, #9780ffee);
+}
+
+.output {
+  padding: 20px;
+  margin-top: 24px;
+  width: 420px;
+  border: thick double #c490ff55;
+  background-color: #d8b5ff25;
+  font-family: "Cinzel", serif;
+  font-size: 36px;
+}
+
+.error {
+  border: thick double #ff909055;
+  background-color: #ffb5cc25;
+  font-family: "Noto Serif", serif;
+  color: #6f1a1a;
+  font-size: 24px;
+}
