@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  background-color: hsla(60, 60%, 50%, 0.2);
+  text-align: center;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5em;
+}
+
+.main-picture {
+  display: block;
+  max-width: 50em;
+  margin: 40px auto 20px auto;
+  box-shadow: 0 0 15px 0;
+}
+
+/* #image {
+  max-width: 100%;
+} --> */
+
+.italic {
+  font-style: italic;
+}
+
+div[id='tribute-info'], div[id='after-tribute-info'] {
+  padding: 20px 0 20px 0;
+  width: 50em;
+  margin: auto;
+  text-align: centered;
+}
+
+.tribute-info-text {
+  text-align: left;
+  text-indent: 2.5em;
+}
+
+.bottom-line {
+  margin: 40px ;
+}
+
+/* LIST */
+
+.milestones-list {
+  list-style-type: none;
+  text-align: left;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+a {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  color: hsl(60, 30%, 40%);
+}
+
+a:active {
+  color: hsl(50, 50%, 50%);
+}
