@@ -1,1 +1,1 @@
-[Try it!] (https://drakofm.github.io/profile/src/)
+(Try it!) [https://drakofm.github.io/profile/src/]
