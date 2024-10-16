@@ -8,6 +8,10 @@
     scrollbar-width: thin;
 }
 
+ul, ol {
+    list-style: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   * {
     scroll-behavior: smooth;
@@ -19,14 +23,21 @@
 
 /* ^^^ Глобальные стили */
 :root {
-    --main-color-1: #ff6f00;
-    --main-color-2: #4a4a48;
-    --bg-color: rgba(76, 75, 75, 0.2);
+    --main-layout-color-dark: rgb(116, 116, 116);
+    --main-layout-color-light: rgb(169, 169, 169);
+    --main-layout-color-cards: rgb(215, 215, 215);
+    --main-layout-color-cards-accent: rgb(212, 202, 190);
+    --bg-color: rgb(231, 231, 231);
+    --text-color-default: rgb(237, 237, 237);  
+    --text-color-accent: rgb(238, 135, 63);
+    --text-color-light-on-dark: rgb(233, 160, 124);
+    --text-color-dark-on-light: rgb(93, 41, 14);
 }
 
 body {
-    font-family: 'Didact Gothic';
-    background-color: rgba(76, 75, 75, 0.2);
+    font-family: 'Jost';
+    background-color: var(--bg-color);
+    color: var(--text-color-default);
 }
 
 main {
@@ -65,41 +76,30 @@ a {
     max-height: 80px;
     background: linear-gradient(
         60deg,
-        var(--main-color-1),
-        var(--main-color-2)
+        var(--main-layout-color-dark),
+        var(--main-layout-color-light),
+        var(--main-layout-color-dark)
     );
-    box-shadow: 0 0 10px 0 var(--main-color-2), inset 0 0 10px 0 var(--main-color-2);
+    box-shadow: 0 0 20px 0 var(--main-layout-color-dark);
     z-index: 1;
-}
-
-#navbar ul {
-    list-style: none;
+    user-select: none;
 }
 
 #navbar li {
     display: inline-block;
     padding: 20px;
-    color: #3F3FBF;
     font-size: max(1.8vw, 20px);
-    transition: all 0.1s ease-out;
-}
-
-#navbar li:hover {
-    transform: translateY(-2px);
-    text-shadow: 0px 0px 0px #1f1f1f;
 }
 
 #navbar a {
     text-decoration: none;
+    transition: all 0.1s ease-out;
 }
 
-#navbar a:hover {
-    color: blue;
+#navbar li a:hover {
+    color: var(--text-color-accent);
 }
 
-#navbar a:visited {
-    color: #3F3FBF;
-}
 /* header $$$ */
 
 
@@ -109,12 +109,13 @@ a {
     width: 100vw;
     background: linear-gradient(
     60deg,
-    var(--main-color-1),
-    var(--main-color-2)
+    var(--main-layout-color-dark),
+    var(--main-layout-color-light)
     );  
-    box-shadow: 0 0 20px 0 var(--main-color-1), inset 0 0 20px 0 var(--main-color-1);
+    box-shadow: 0 0 20px 0 var(--main-layout-color-dark), inset 0 0 20px 0 var(--main-layout-color-dark);
     font-size: min(36px, 3vw);
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Roboto Mono';
+    user-select: none;
 }
 
 #welcome-section-bg {
@@ -122,16 +123,16 @@ a {
     width: 100%;
     height: 100%;
     background-image: url(./assets/welcome-section-bg-jpg.jpg);
-    opacity: 0.7;
+    opacity: 0.5;
 }
 
 .parallax-div {
     margin: min(3vw, 30px);
-    text-shadow: 0 0 1px;
+    text-shadow: 0 0 5px var(--main-layout-color-dark);
 }
 
 #parallax-name {
-    color: #0E4F7B;
+    color: var(--text-color-accent);
 }
 /* Welcome section $$$ */
 
@@ -144,6 +145,7 @@ a {
     gap: max(5vw, 5vh, 20px);
     width: 90%;
     padding-top: 5%;
+    color: var(--text-color-dark-on-light);
 }
 
 .project-card {
@@ -151,14 +153,15 @@ a {
     flex-direction: column;
     align-items: center;
     width: max(300px, 25vw);
-    padding: 1%;
-    background: var(--main-color-1);
+    padding: 5%;
+    background: var(--main-layout-color-cards);
     border-radius: 30px;
+    box-shadow: 0 0 10px var(--main-layout-color-dark);
     transition: all 0.1s linear;
 }
 
 .project-card:hover {
-    box-shadow: 0 0 10px 0 var(--main-color-2);
+    box-shadow: 0 0 20px 0 var(--main-layout-color-dark);
 }
 
 .project-card__img {
@@ -171,6 +174,8 @@ a {
 .project-card__name {
     margin-bottom: 1%;
     font-size: max(1.4vw, 1.2rem);
+    color: var(--text-color-accent);
+    text-align: center;
 }
 
 .project-card__line {
@@ -191,7 +196,222 @@ a {
 
 /* ^^^ Profile section */
 #profile-section {
+    width: 80%;
+    margin-top: 10vh;
     text-align: center;
+    color: var(--text-color-dark-on-light);
+}
+
+
+
+#me-and-hardskills-icons-container {
+    display: flex;
+    align-items: center;
+    gap: 5vw;
+    user-select: none;
+}
+
+#profile-photo {
+    height: 15vw;
+    width: 15vw;
+    border-radius: 50%;
+}
+
+.hardskills-icons {
+    height: 5vw;
+    width: 5vw;
+}
+
+
+
+#hardskills-description-container {
+    width: 60%;
+    text-align: left;
+}
+
+@media screen and (max-width: 842px) {
+    #hardskills-description-container {
+        width: 80%;
+        text-align: center;
+    }
+}
+
+.hardskills-description__text-box {
+    margin: max(3vw, 20px) auto;
+}
+
+.hardskills-description__skillname {
+    color: var(--text-color-accent);
+}
+
+
+
+#instruments-container {
+    width: 80%;
+    margin: 3vh 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: min(2vw, 15px);
+    justify-content: center;
+    user-select: none;
+}
+
+.instruments__cell {
+    padding: 5px 10px;
+    background-color: var(--main-layout-color-cards);
+    border-radius: 20px;
+    transition: background-color .3s;
+}
+
+.instruments__cell:hover {
+    background-color: var(--main-layout-color-cards-accent);
+}
+
+
+
+#knowledge-sources-container {
+    margin: 1vh 0;
+}
+
+#knowledge-sources__list li {
+    margin: 5px 0;
+}
+
+#knowledge-sources__list a{
+    transition: text-shadow .1s;
+}
+
+#knowledge-sources__list a:hover{
+    text-shadow: 0px 0px 1px var(--text-color-light-on-dark);
+}
+
+
+
+#more-about-me-container details{
+    margin: 1vh 0;
+}
+
+#more-about-me-container summary {
+   display: inline-block;
+   background-color: var(--main-layout-color-cards);
+   border-radius: 12px;
+   padding: 3px 8px;
+   margin: 5px;
+   cursor: pointer;
+   animation: widering-coloring-reverse .5s;
+   transition: background-color .5s;
+   user-select: none;
+}
+
+@keyframes widering-coloring-reverse {
+    0% {padding: 3px 15vw; background-color: var(--main-layout-color-cards-accent);}
+    100% {padding: 3px 8px;}
+}
+
+#more-about-me-container summary:hover {
+    background-color: var(--main-layout-color-cards-accent);
+}
+
+#more-about-me-container summary::before {  
+  content: "";
+  display: inline-block;
+  background: url(./assets/details-marker.png);
+  /* Было бы отлично сделать свой SVG, который будет перенимать цвет текста */
+  background-size: 1em;
+  width: 1em; 
+  height: 1em;
+  margin: 0 5px;
+  transition: all .5s;
+}
+
+#more-about-me-container details[open] > summary {
+    display: inline-block;
+    place-self: center;
+    width: fit-content;
+    animation: widering-coloring .5s ease forwards;
+}
+
+@keyframes widering-coloring {
+    0% {padding: 3px 8px;}
+    100% {padding: 3px 15vw; background-color: var(--main-layout-color-cards-accent);}
+}
+
+#more-about-me-container details[open] summary ~ * {
+    animation: smooth-appearance 0.5s ease-in-out;
+}
+
+@keyframes smooth-appearance {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+#more-about-me-container details[open] > summary::before {
+    transform: rotate(90deg);
+}
+
+#more-about-me-container details[open] > p {
+    text-align: left;
+}
+
+
+
+#work-expirience {
+    margin: 3vh 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3vh;
+    align-items: start;
+    text-align: left;
+}
+
+#work-expirience p:nth-child(odd) {
+    text-align: right;
+}
+
+@media screen and (max-width: 648px) {
+    #work-expirience {
+        font-size: 0.75em;
+    }
+}
+
+
+
+#education-and-courses {
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+}
+
+@media screen and (max-width: 1024px) {
+    #education-and-courses {
+        flex-direction: column;
+    }
+}
+
+.education-and-courses__cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max(300px, 18vw);
+    padding: 2%;
+    background: var(--main-layout-color-cards);
+    border-radius: 30px;
+    box-shadow: 0 0 10px var(--main-layout-color-dark);
+}
+
+.education-and-courses__cell img {
+    width: 90%;
+    margin: 3% 3% 1% 3%;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+
+
+
+
+#icons-div {
+    user-select: none;
 }
 
 #icons-div a img{
@@ -220,14 +440,17 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 40vw;
     height: 3vh;
+    margin-top: 3%;
     background: linear-gradient(
         60deg,
-        var(--main-color-1),
-        var(--main-color-2)
+        var(--main-layout-color-light),
+        var(--main-layout-color-dark),
+        var(--main-layout-color-light)
     );
-    box-shadow: 0 0 10px 0 var(--main-color-2);
-    margin-top: 3%;
+    box-shadow: 0 0 10px 0 var(--main-layout-color-light);
+    color: var(--text-color-light-on-dark);
 }
 
 footer p {
