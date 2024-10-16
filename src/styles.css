@@ -15,7 +15,7 @@ ul, ol {
 @media (prefers-reduced-motion: no-preference) {
   * {
     scroll-behavior: smooth;
-  }
+  } 
 }
 /* Сброс стилей $$$ */
 
@@ -23,8 +23,8 @@ ul, ol {
 
 /* ^^^ Глобальные стили */
 :root {
-    --main-layout-color-dark: rgb(116, 116, 116);
-    --main-layout-color-light: rgb(169, 169, 169);
+    --main-layout-color-dark: rgb(92, 92, 92);
+    --main-layout-color-light: rgb(124, 124, 124);
     --main-layout-color-cards: rgb(215, 215, 215);
     --main-layout-color-cards-accent: rgb(212, 202, 190);
     --bg-color: rgb(231, 231, 231);
@@ -38,6 +38,7 @@ body {
     font-family: 'Jost';
     background-color: var(--bg-color);
     color: var(--text-color-default);
+    overflow-x: hidden;
 }
 
 main {
@@ -52,7 +53,7 @@ section {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    scroll-margin-top: 50px;
+    scroll-margin-top: 80px;
     padding: 20px 0;
 }
 
@@ -112,7 +113,7 @@ a {
     var(--main-layout-color-dark),
     var(--main-layout-color-light)
     );  
-    box-shadow: 0 0 20px 0 var(--main-layout-color-dark), inset 0 0 20px 0 var(--main-layout-color-dark);
+    box-shadow: 0 0 40px 0 var(--main-layout-color-dark), inset 0 0 20px 0 var(--main-layout-color-dark);
     font-size: min(36px, 3vw);
     font-family: 'Roboto Mono';
     user-select: none;
@@ -152,7 +153,9 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: max(300px, 25vw);
+    justify-content: space-evenly;
+    width: max(250px, 20vw);
+    height: max(458px, calc(200px + max(22vw, 30vh)));
     padding: 5%;
     background: var(--main-layout-color-cards);
     border-radius: 30px;
@@ -355,6 +358,79 @@ a {
 
 
 
+#background-and-goals{
+    display: inline-block;
+}
+
+#background-and-goals p{
+    margin: 0.8em;
+    text-align: left;
+}
+
+#background-and-goals img{
+    display: inline-block;
+    max-width: 400px;
+    max-height: 225px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--main-layout-color-dark);
+}
+
+#background-and-goals__img-tv {
+    float: right;
+    margin: 1em 1em 1em max(20px, 2vw);
+}
+
+#background-and-goals__img-dev {
+    float: left;
+    margin: 1em max(20px, 2vw) 1em 1em;
+    filter: brightness(1.2) contrast(0.8);
+}
+
+@media screen and (max-width: 712px) {
+    #background-and-goals img{
+        float: none;
+    }
+}
+
+
+
+#education-and-courses {
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+}
+
+.education-and-courses__cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: max(300px, 18vw);
+    height: 476px;
+    padding: 2%;
+    background: var(--main-layout-color-cards);
+    border-radius: 30px;
+}
+
+.education-and-courses__cell img {
+    width: 90%;
+    margin: 3%;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+    #education-and-courses {
+        flex-direction: column;
+    }
+
+    .education-and-courses__cell {
+        height: fit-content;
+    }
+}
+
+
+
 #work-expirience {
     margin: 3vh 0;
     display: grid;
@@ -373,40 +449,6 @@ a {
         font-size: 0.75em;
     }
 }
-
-
-
-#education-and-courses {
-    display: flex;
-    flex-direction: row;
-    gap: 3vw;
-}
-
-@media screen and (max-width: 1024px) {
-    #education-and-courses {
-        flex-direction: column;
-    }
-}
-
-.education-and-courses__cell {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: max(300px, 18vw);
-    padding: 2%;
-    background: var(--main-layout-color-cards);
-    border-radius: 30px;
-    box-shadow: 0 0 10px var(--main-layout-color-dark);
-}
-
-.education-and-courses__cell img {
-    width: 90%;
-    margin: 3% 3% 1% 3%;
-    object-fit: contain;
-    border-radius: 20px;
-}
-
-
 
 
 
@@ -449,7 +491,7 @@ footer {
         var(--main-layout-color-dark),
         var(--main-layout-color-light)
     );
-    box-shadow: 0 0 10px 0 var(--main-layout-color-light);
+    box-shadow: 0 0 10px 0 var(--main-layout-color-dark);
     color: var(--text-color-light-on-dark);
 }
 
