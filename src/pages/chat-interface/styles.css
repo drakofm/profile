@@ -182,12 +182,6 @@ main {
 
 /* ^^^ Adaptive  */
 
-@media screen and (max-width: 1080px) {
-  #users-list-and-chat {
-    max-height: calc(100vh - 160px - 60px);
-  }
-}
-
 @media screen and (max-width: 666px) {
   #users-list {
     display: flex;
