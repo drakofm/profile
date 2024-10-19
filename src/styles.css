@@ -360,6 +360,7 @@ a {
 
 #background-and-goals{
     display: inline-block;
+    width: 80vw;
 }
 
 #background-and-goals p{
@@ -369,8 +370,8 @@ a {
 
 #background-and-goals img{
     display: inline-block;
-    max-width: 400px;
-    max-height: 225px;
+    max-width: 64vw;
+    max-height: 36vh;
     border-radius: 10px;
     box-shadow: 0 0 10px var(--main-layout-color-dark);
 }
@@ -474,8 +475,6 @@ a {
     transform: scale(1.45);
 }
 /* Profile section $$$ */
-
-
 
 /* ^^^ footer */
 footer {
