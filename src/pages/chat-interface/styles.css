@@ -182,6 +182,14 @@ main {
 
 /* ^^^ Adaptive  */
 
+/* @media screen and (max-width: 1080px) {
+  #users-list-and-chat {
+    max-height: calc(100vh - 160px - 60px);
+  }
+} */
+
+/* ^ Это некрасивое правило было здесь исключительно для соблюдения главного ограничения проекта - не использовать JS. Оно крайне неэлегантное, поэтому я всё же подключил минимальную JS-нагрузку в проекте */
+
 @media screen and (max-width: 666px) {
   #users-list {
     display: flex;
