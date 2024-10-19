@@ -373,8 +373,8 @@ a {
 
 #background-and-goals img{
     display: inline-block;
-    max-width: 64vw;
-    max-height: 36vh;
+    max-width: calc(16vw * 4.2);
+    max-height: calc(9vh * 4.2);
     border-radius: 10px;
     box-shadow: 0 0 10px var(--main-layout-color-dark);
 }
