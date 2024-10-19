@@ -5,9 +5,7 @@ if (!isMobile) {
   let paral2 = document.querySelector('#parallax2');
   let paral3 = document.querySelector('#parallax3');
   let paral4 = document.querySelector('#parallax4');
-  window.addEventListener('mousemove', e => {
-    // let x = e.clientX / window.innerWidth;
-    // let y = e.clientY / window.innerHeight;  
+  window.addEventListener('mousemove', e => {  
     let x = window.innerWidth / 2 - e.clientX;
     let y = window.innerHeight / 2 - e.clientY;  
     paral1.style.transform = `translate(${x / 7}px, ${y / 7}px)`;
