@@ -23,6 +23,10 @@ body {
   flex-direction: column;
 }
 
+#main-text {
+  text-align: center;
+}
+
 #check-btn {
   border: 1px solid rgba(4, 140, 120, 0.8);
   border-radius: 5px;
