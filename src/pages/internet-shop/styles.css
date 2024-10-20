@@ -213,139 +213,137 @@ footer p:last-of-type {
 @media only screen and (max-width: 400px) {
 
     #header {
-  position: absolute;
-  flex-direction: column;
-  height: 80px;
-  
+        position: fixed;
+        flex-direction: column;
+        gap: 5px;
+        height: 100px;
     }
 
     #header img {
-    max-width: 10%;
-    max-height: 100%;
-    min-width: 25px;
-    padding: 0px;
-    margin-bottom: 3px;
-
+        max-width: 10%;
+        max-height: 100%;
+        min-width: 25px;
+        padding: 0px;
+        margin-bottom: 3px;
     }
 
     #header h1 {
-    height: 20px;
-    width: 90%;
-    justify-content: center;
-    font-size: min(14px, 4vw);
-    text-align: center;
-    padding: 3px;
-    margin: 0;
-}
+        height: 20px;
+        width: 90%;
+        justify-content: center;
+        font-size: min(14px, 4vw);
+        text-align: center;
+        padding: 3px;
+        margin: 0;
+    }
 
-#navbar {
-  align-items: center;
-  justify-content: center;
-  width: 90%;
-    padding: 0;
-    margin: 0;
-}
+    #navbar {
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        padding: 0;
+        margin: 0;
+    }
 
-#navbar ul {
-    height: 14px;
-    justify-content: center;
-    padding: 3px;
-    margin: 0;
-}
+    #navbar ul {
+        height: 14px;
+        justify-content: center;
+        padding: 3px;
+        margin: 0;
+    }
 
-#navbar li {
-    font-size: min(14px, 4vw);
-    justify-content: center;
-    overflow-y: hidden;
-    
-}
+    #navbar li {
+        font-size: min(14px, 4vw);
+        justify-content: center;
+        overflow-y: hidden;
+    }
 
-main {
-  padding-top: 80px;
-}
+    main {
+        padding-top: 100px; 
+    }
 
-hr {
-    opacity: 0.4;
-}
+    hr {
+        opacity: 0.4;
+    }
 
-section {
+    section {
+        flex-direction: column;
+        align-items: center;
+        justify-content:center;
+        scroll-margin-top: 7px;
+    }
+
+    #benefits p {
+        font-size: 12px;
+        border-radius: 20px;
+        width: 50%;
+        margin: 3px;
+    }
+
+    #benefits img {
+        width: 20%;
+        height: 20%;
+    }
+
+    #video p {
+        margin: 3px;
+        font-size: 12px;
+        width: max(150px, 50vw);
+    }
+
+    iframe {
+        width: 60vw;
+        min-width: 200px;
+        min-height: 150px;
+        box-shadow: 0px 0px 10px 0px;
+        border-radius: 10px;
+        margin: 12px 0;
+    }
+
+    figcaption {
+        font-size: 14px;
+    }
+
+    #get-more {
+        margin-bottom: 20px;
+        font-size: 14px;
+    }
+
+    #get-more img {
+        display: none;
+        height: 10%;
+        width: 10%;
+        padding: 2% 0;
+    }
+
+    #get-more input {
+        height: 18px;
+        width: 70vw;
+        margin-bottom: 5%;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 30px;
+    }
+
+    footer {
     flex-direction: column;
-    align-items: center;
-    justify-content:center;
-    scroll-margin-top: 7px;
-}
+        justify-content: center;
+        height: 150px;
+        font-size: min(5vw, 10px);
+        font-family: 'Raleway', sans-serif;
+        line-height: 1.25;
+    }
 
-#benefits p {
-    font-size: 12px;
-    border-radius: 20px;
-    width: 50%;
-    margin: 3px;
-}
+    footer p:first-of-type {
+        text-align: center;
+        max-width: 90%;
+    }
 
-#benefits img {
-    width: 20%;
-    height: 20%;
-}
-
-#video p {
-    margin: 3px;
-    font-size: 12px;
-    width: max(150px, 50vw);
-}
-
-iframe {
-    width: 60vw;
-    min-width: 200px;
-    min-height: 150px;
-    box-shadow: 0px 0px 10px 0px;
-    border-radius: 10px;
-    margin: 12px 0;
-}
-
-figcaption {
-    font-size: 14px;
-}
-
-#get-more {
-    margin-bottom: 20px;
-    font-size: 14px;
-}
-
-#get-more img {
-    display: none;
-    height: 10%;
-    width: 10%;
-    padding: 2% 0;
-}
-
-#get-more input {
-    height: 18px;
-    width: 70vw;
-    margin-bottom: 5%;
-}
-
-button {
-    font-size: 14px;
-    padding: 8px 30px;
-}
-
-footer {
-   flex-direction: column;
-    justify-content: center;
-    height: 150px;
-    font-size: min(5vw, 10px);
-    font-family: 'Raleway', sans-serif;
-    line-height: 1.25;
-}
-
-footer p:first-of-type {
-    text-align: center;
-    max-width: 90%;
-}
-
-footer p:last-of-type {
-    text-align: center;
-    max-width: 90%;
-}
+    footer p:last-of-type {
+        text-align: center;
+        max-width: 90%;
+    }
 
 }
