@@ -19,7 +19,7 @@
       
       <fieldset class='main-border'>
         <legend>Your account info</legend>
-        <label for='name'> Name: <input type='text' id='name' name='name' required></label>
+        <label for='name'> Name: <input type='text' id='name' name='name' autocomplete="off" required></label>
         <label for='surname' >Surname: <input type='text' id='surname' name='surname'></label>
         <label for='age'>Age: <input type='number' id='age' name='age' min='6' max='120' required></label>
         <label for='gender'>Gender: <select id='gender' name='gender'>
@@ -27,7 +27,7 @@
           <option value='2'>Female</option>
           <option value='3'>Other</option>
           </select></label>
-        <label for='email'>E-mail: <input type='email' id='email' name='email' required></label>
+        <label for='email'>E-mail: <input type='email' id='email' name='email' autocomplete="off" required></label>
         <label for='nickname'>Nickname: <input type='text' id='nickname' name='nickname'></label>
         <label for='password'>Password: <input type='password' id='password' name='password' pattern='[a-z0-9]{8,}' placeholder='min 8 symbols, a-z, 0-9' reqired></label>
         <label for='profile-picture'>Profile picture: <input type='file' id='profile-picture' name='profile-picture'></label>
@@ -40,7 +40,7 @@
         <fieldset>
           <legend>General Information</legend>
         <label for='character-name'> Character name: <input type='text' id='character-name' name='character-name' required></label>
-        <label for='race'> Race: <select id='character-race' name='character-race' required>
+        <label for='character-race'> Race: <select id='character-race' name='character-race' required >
           <option value='Gnome'>Gnome</option>
           <option value='Dwarf'>Dwarf</option>
           <option value='Dragonborn'>Dragonborn</option>
@@ -83,12 +83,12 @@
 
         <fieldset>
           <legend>Characteristics</legend>
-          <label for='stat-strength'>Strength: <input type='number' id='stat-strength' name='stat-strength-base'> + <input type='number' id='stat-strength' name='stat-strength-mod'></label>
-          <label for='stat-dexterity'>Dexterity: <input type='number' id='stat-dexterity' name='stat-dexterity-base'> + <input type='number' id='stat-dexterity' name='stat-dexterity-mod'></label>
-          <label for='stat-constitution'>Constitution: <input type='number' id='stat-constitution' name='stat-constitution-base'> + <input type='number' id='stat-constitution' name='stat-constitution-mod'></label>
-          <label for='stat-intelligence'>Intelligence: <input type='number' id='stat-intelligence' name='stat-intelligence-base'> + <input type='number' id='stat-intelligence' name='stat-intelligence-mod'></label>
-          <label for='stat-wisdom'>Wisdom: <input type='number' id='stat-wisdom' name='stat-wisdom-base'> + <input type='number' id='stat-wisdom' name='stat-wisdom-mod'></label>
-          <label for='stat-charisma'>Charisma: <input type='number' id='stat-charisma' name='stat-charisma-base'> + <input type='number' id='stat-charisma' name='stat-charisma-mod'></label>
+          <label for='stat-strength-main'>Strength: <input type='number' id='stat-strength-main' name='stat-strength-base'> + <input type='number' id='stat-strength-additional' name='stat-strength-mod'></label>
+          <label for='stat-dexterity-main'>Dexterity: <input type='number' id='stat-dexterity-main' name='stat-dexterity-base'> + <input type='number' id='stat-dexterity-additional' name='stat-dexterity-mod'></label>
+          <label for='stat-constitution-main'>Constitution: <input type='number' id='stat-constitution-main' name='stat-constitution-base'> + <input type='number' id='stat-constitution-additional' name='stat-constitution-mod'></label>
+          <label for='stat-intelligence-main'>Intelligence: <input type='number' id='stat-intelligence-main' name='stat-intelligence-base'> + <input type='number' id='stat-intelligence-additional' name='stat-intelligence-mod'></label>
+          <label for='stat-wisdom-main'>Wisdom: <input type='number' id='stat-wisdom-main' name='stat-wisdom-base'> + <input type='number' id='stat-wisdom-additional' name='stat-wisdom-mod'></label>
+          <label for='stat-charisma-main'>Charisma: <input type='number' id='stat-charisma-main' name='stat-charisma-base'> + <input type='number' id='stat-charisma-additional' name='stat-charisma-mod'></label>
         </fieldset>
         
 <!--_________________________-->
