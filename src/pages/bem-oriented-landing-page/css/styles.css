@@ -80,6 +80,7 @@ body {
     min-height: 740px;
     background-image: url(../img/first-screen-bg.jpg);
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .header__title {
