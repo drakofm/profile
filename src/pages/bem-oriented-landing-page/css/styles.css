@@ -297,8 +297,6 @@ body {
     padding-top: 30px;
 }
 
-.request__flex-item {}
-
 .request-h2 {
     font-size: 48px;
     font-style: bold;
@@ -426,8 +424,6 @@ body {
     }
 }
 
-.portfolio {}
-
 .portfolio__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -439,8 +435,6 @@ body {
     padding: 0;
     margin: 0;
 }
-
-.portfolio__img {}
 
 @media screen and (max-width: 1280px) {
     .portfolio__grid {
@@ -462,10 +456,6 @@ body {
 .question .section__h2 {
     margin-bottom: 50px;
 }
-
-.question__items {}
-
-.question__item {}
 
 .question-h3 {
     text-transform: uppercase;
@@ -676,10 +666,6 @@ body {
     display: flex;
     justify-content: space-between;
 }
-
-.footer__copyright {}
-
-.footer__brand {}
 
 @media screen and (max-width: 1280px) {
     .footer {
