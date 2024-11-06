@@ -60,11 +60,12 @@ h2 {
 
 #number[type="number"]::-webkit-inner-spin-button, 
 #number[type="number"]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
+  appearance: none; 
   margin: 0; 
 }
 
 #number[type="number"] {
+  appearance: none;
   -moz-appearance: textfield;
 }
 
