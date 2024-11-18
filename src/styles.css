@@ -217,7 +217,7 @@ a {
 #me-and-hardskills-icons-container {
     display: flex;
     align-items: center;
-    gap: 5vw;
+    gap: 3vw;
     user-select: none;
 }
 
