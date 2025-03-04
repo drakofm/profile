@@ -214,6 +214,30 @@ a {
 
 
 
+#resume-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+#resume-button {
+    height: max(36px, 6vh);
+    width: max(160px, 12vw);
+    border-radius: 15px;
+    border: none;
+    font-size: 90%;
+    color: var(--text-color-dark-on-light);
+    background-color: var(--main-layout-color-cards);
+    transition: background-color .3s;
+    cursor: pointer;
+}
+
+#resume-button:hover {
+    background-color: var(--main-layout-color-cards-accent);
+}
+
 #me-and-hardskills-icons-container {
     display: flex;
     align-items: center;
