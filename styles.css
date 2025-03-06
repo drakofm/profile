@@ -139,7 +139,7 @@ a {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: url(./assets/welcome-section-bg-jpg.jpg);
+    background-image: url(./src/assets/welcome-section-bg-jpg.jpg);
     opacity: 0.5;
 }
 /* Welcome section $$$ */
@@ -349,7 +349,7 @@ a {
 #more-about-me-container summary::before {  
   content: "";
   display: inline-block;
-  background: url(./assets/details-marker.png);
+  background: url(./src/assets/details-marker.png);
   /* Было бы отлично сделать свой SVG, который будет перенимать цвет текста */
   background-size: 1em;
   width: 1em; 
