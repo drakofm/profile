@@ -24,15 +24,15 @@ ul, ol {
 
 /* ^^^ Глобальные стили */
 :root {
-    --main-layout-color-dark: rgb(92, 92, 92);
-    --main-layout-color-light: rgb(124, 124, 124);
-    --main-layout-color-cards: rgb(215, 215, 215);
-    --main-layout-color-cards-accent: rgb(212, 202, 190);
-    --bg-color: rgb(231, 231, 231);
+    --main-layout-color-dark: rgb(97, 102, 111);
+    --main-layout-color-light: rgb(116, 124, 135);
+    --main-layout-color-cards: rgb(197, 214, 222);
+    --main-layout-color-cards-accent: rgb(187, 197, 209);
+    --bg-color: rgb(214, 225, 230);
     --text-color-default: rgb(237, 237, 237);  
-    --text-color-accent: rgb(238, 135, 63);
-    --text-color-light-on-dark: rgb(233, 160, 124);
-    --text-color-dark-on-light: rgb(93, 41, 14);
+    --text-color-accent: rgb(51, 131, 201);
+    --text-color-light-on-dark: rgb(124, 182, 233);
+    --text-color-dark-on-light: rgb(14, 50, 93);
 }
 
 body {
@@ -99,7 +99,7 @@ a {
 }
 
 #navbar li a:hover {
-    color: var(--text-color-accent);
+    color: var(--text-color-light-on-dark);
 }
 
 
