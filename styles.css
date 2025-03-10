@@ -36,7 +36,7 @@ ul, ol {
 }
 
 body {
-    font-family: 'Jost';
+    font-family: 'Jost', 'Segoe UI', 'Arial';
     background-color: var(--bg-color);
     color: var(--text-color-default);
     overflow-x: hidden;
